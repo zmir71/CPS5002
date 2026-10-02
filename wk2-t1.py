@@ -23,12 +23,12 @@ class FuzzyTemp:
         return fuzz
 
 
-    def __infer(self, antecedents):
+    def __infer(self, fuzz):
         # Rule Evaluation: Apply rules to determine the consequent
-        heater_degree_on = max(antecedents[term] for term in self.rules['heater_on'])
-        fan_degree_on = max(antecedents[term] for term in self.rules['fan_on'])
-        heater_degree_off = max(antecedents[term] for term in self.rules['heater_off'])
-        fan_degree_off = max(antecedents[term] for term in self.rules['fan_off'])
+        heater_degree_on = max(fuzz[term] for term in self.rules['heater_on'])
+        fan_degree_on = max(fuzz[term] for term in self.rules['fan_on'])
+        heater_degree_off = max(fuzz[term] for term in self.rules['heater_off'])
+        fan_degree_off = max(fuzz[term] for term in self.rules['fan_off'])
         return {'heater_on': heater_degree_on, 'fan_on': fan_degree_on, 'heater_off': heater_degree_off, 'fan_off': fan_degree_off}
 
 
@@ -57,4 +57,5 @@ class FuzzyTemp:
         return self.__defuzzify(infer_result)
 
 fuzzy = FuzzyTemp()
-
+test = fuzzy.evaluate(25)
+print('System result: ',test, 'for temp = 25')
