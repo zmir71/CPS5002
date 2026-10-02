@@ -55,3 +55,6 @@ class FuzzyTemp:
         infer_result = self.__infer(fuzz)
         # Defuzzification: Choose the final operation
         return self.__defuzzify(infer_result)
+
+fuzzy = FuzzyTemp()
+
