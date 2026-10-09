@@ -13,22 +13,18 @@ class Genetic:
     def create_pop(self):
         letters = string.ascii_lowercase
         population = []
-        for i in range(len(self.target)):
-            single = random.choice(letters)
+        for i in range(self.pop_size):
+            single = ''.join(random.choice(letters) for _ in range(len(self.target)))
             population.append(single)
         return population
 
     def fitness_score(self, selected):
-        score = 0
-        for letter in selected:
-            if letter in self.target:
-                score += 2
-        return score
+        return sum(1 for i, j in zip(selected, self.target) if i == j)
 
     def selection(self):
         fitness_scores = [self.fitness_score(score) for score in self.population]
         total = sum(fitness_scores)
-        prob = [i / total for i in fitness_scores]
+        prob = [f / total for f in fitness_scores]
         return random.choices(self.population,prob,k=self.pop_size)
 
     def crossover(self, parent1, parent2):
@@ -60,7 +56,6 @@ class Genetic:
                 offspring.append(self.mutation(child1))
                 offspring.append(self.mutation(child2))
             self.replacement(offspring)
-            # Output the best individual and its fitness at each generation
             best_individual = max(self.population, key=self.fitness_score)
             print(f"Generation: {self.solution}, Best: {best_individual}, Fitness: {self.fitness_score(best_individual)}")
         print(f"Target string '{self.target}' achieved in {self.solution} generations.")

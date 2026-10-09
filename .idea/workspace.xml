@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6882d2f6-3ae4-4249-992a-5799eaa7fcd8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wk3-t1.py" beforeDir="false" afterPath="$PROJECT_DIR$/wk3-t1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,15 +32,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.wk1-t2.executor": "Run",
-    "Python.wk1.executor": "Run",
-    "Python.wk3-t1.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.wk1-t2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wk1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.wk3-t1.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.wk3-t1">
     <configuration name="wk1-t1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="wk1-ai" />
