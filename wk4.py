@@ -47,7 +47,7 @@ class TicTacToe:
         ]
         return any(all(self.board[i] == player for i in solution) for solution in win_conditions)
 
-    def minimax(self, is_maximising):
+    def minimax(self, is_maximising, alpha, beta):
         """Minimax algorithm to evaluate the best move."""
         if self.is_winner('X'): return -1
         if self.is_winner('O'): return 1
@@ -57,18 +57,24 @@ class TicTacToe:
             for i in range(9):
                 if self.board[i] == ' ':
                     self.board[i] = 'X'
-                    score = self.minimax(False)
+                    score = self.minimax(False, alpha, beta)
                     self.board[i] = ' '
                     best_score = max(score, best_score)
+                    alpha = max(alpha, score)
+                    if beta <= alpha:  # Prune the search tree
+                        break
             return best_score
         else:  # Computer - ('O') is minimising
             best_score = float('inf')
             for i in range(9):
                 if self.board[i] == ' ':
                     self.board[i] = 'O'
-                    score = self.minimax(True)
+                    score = self.minimax(True, alpha, beta)
                     self.board[i] = ' '
                     best_score = max(score, best_score)
+                    beta = min(beta, score)
+                    if beta <= alpha:  # Prune the search tree
+                        break
             return best_score
 
     def computer_move(self):
@@ -79,7 +85,7 @@ class TicTacToe:
         for i in range(9):
             if self.board[i] == ' ':
                 self.board[i] = 'O'
-                score = self.minimax(True)  # Pass True to let the human ('X') maximise
+                score = self.minimax(True, float('-inf'), float('inf'))
                 self.board[i] = ' '
                 if score < best_score:  # Minimising: look for the lowest score
                     best_score = score
