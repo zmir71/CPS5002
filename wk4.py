@@ -71,7 +71,7 @@ class TicTacToe:
                     self.board[i] = 'O'
                     score = self.minimax(True, alpha, beta)
                     self.board[i] = ' '
-                    best_score = max(score, best_score) #could be min
+                    best_score = min(score, best_score) #could be min
                     beta = min(beta, score)
                     if beta <= alpha:  # Prune the search tree
                         break
